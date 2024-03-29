@@ -1,0 +1,15 @@
+{
+  "mapchooser.prefix": "[[GREEN]Map Chooser[NORMAL]] ",
+  "mapchooser.rtv_enabled": "[GREEN]RTV[NORMAL] has been enabled.",
+  "mapchooser.rtv_not_allowed": "[GREEN]RTV[NORMAL] is not allowed on this server.",
+  "mapchooser.rtv_not_enabled": "[GREEN]RTV[NORMAL] has not been enabled yet.",
+  "mapchooser.rtv_spectator_not_allowed": "Spectators are not allowed to [GREEN]RTV[NORMAL].",
+  "mapchooser.rtv_vote": "{green}{0}{default} has voted to {green}RTV{default}[{1}/{2}].",
+  "mapchooser.rtv_retract_vote": "{green}{0}{default} has retracted {green}RTV{default} vote [{1}/{2}].",
+  "mapchooser.rtv_moved_to_spectator": "{green}{0}{default} has moved to spectator, retracted {green}RTV{default} vote [{1}/{2}].",
+  "mapchooser.rtv_not_voted_yet": "You have not voted to {green}RTV{default}.",
+  "mapchooser.rtv_failed_not_enough_votes": "[GREEN]RTV[NORMAL] has failed due to not enough players voting.",
+  "mapchooser.rtv_option_dont_change": "Don't Change.",
+  "mapchooser.voted_for_map": "[GREEN]{0}[NORMAL] has voted for [GREEN]{1}[NORMAL].",
+  "mapchooser.next_map_selected": "[GREEN]{0}[NORMAL] has been selected as the next map."
+}

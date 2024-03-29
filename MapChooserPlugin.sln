@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapChooserPlugin", "MapChooserPlugin\MapChooserPlugin.csproj", "{DE0309E6-D97B-46BA-8C16-0C953A6A3BE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapChooserPlugin.Tests", "MapChooserPlugin.Tests\MapChooserPlugin.Tests.csproj", "{4D358B42-3F01-457C-B2E6-947335AF3C26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE0309E6-D97B-46BA-8C16-0C953A6A3BE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE0309E6-D97B-46BA-8C16-0C953A6A3BE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE0309E6-D97B-46BA-8C16-0C953A6A3BE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE0309E6-D97B-46BA-8C16-0C953A6A3BE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D358B42-3F01-457C-B2E6-947335AF3C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D358B42-3F01-457C-B2E6-947335AF3C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D358B42-3F01-457C-B2E6-947335AF3C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D358B42-3F01-457C-B2E6-947335AF3C26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
