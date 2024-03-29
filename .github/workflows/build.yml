@@ -1,0 +1,66 @@
+name: Build MapChooser2.zip
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  release:
+    types:
+      - created
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore -c Release
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+    - name: Create output directory
+      run: |
+        mkdir -p output/CS2MapChooser2
+        mv ./MapChooserPlugin/bin/Release/net8.0/MapChooserPlugin.dll output/CS2MapChooser2/
+        mv ./MapChooserPlugin/bin/Release/net8.0/MapChooserPlugin.pdb output/CS2MapChooser2/
+        mv ./MapChooserPlugin/lang output/CS2MapChooser2/
+    - name: Publish artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: MapChooserPlugin-${{ github.sha }}
+        path: output
+
+  release:
+    needs: build
+    permissions: write-all
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: MapChooserPlugin-${{ github.sha }}
+      - name: Create release assets
+        run: |
+          zip -r MapChooserPlugin-${{ github.sha }}.zip ./MapChooserPlugin
+      - name: Get release info
+        run: |
+          RELEASE_INFO=$(curl -sH 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/${{ github.repository }}/releases)
+          export UPLOAD_URL=$(echo $RELEASE_INFO | jq -r ".[] | select(.tag_name == \"${{ github.event.release.tag_name }}\").upload_url")
+          echo "UPLOAD_URL=$UPLOAD_URL" >> $GITHUB_ENV
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ env.UPLOAD_URL }}
+          asset_path: ./MapChooserPlugin-${{ github.sha }}.zip
+          asset_name: "cs2-mapchooser-2-${{ github.event.release.tag_name }}.zip"
+          asset_content_type: application/zip
