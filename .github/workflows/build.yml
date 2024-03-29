@@ -26,10 +26,10 @@ jobs:
       run: dotnet test --configuration Release --no-build --verbosity normal
     - name: Create output directory
       run: |
-        mkdir -p output/CS2MapChooser2
-        mv ./MapChooserPlugin/bin/Release/net8.0/MapChooserPlugin.dll output/CS2MapChooser2/
-        mv ./MapChooserPlugin/bin/Release/net8.0/MapChooserPlugin.pdb output/CS2MapChooser2/
-        mv ./MapChooserPlugin/lang output/CS2MapChooser2/
+        mkdir -p output/MapChooserPlugin
+        mv ./MapChooserPlugin/bin/Release/net8.0/MapChooserPlugin.dll output/MapChooserPlugin/
+        mv ./MapChooserPlugin/bin/Release/net8.0/MapChooserPlugin.pdb output/MapChooserPlugin/
+        mv ./MapChooserPlugin/lang output/MapChooserPlugin/
     - name: Publish artifact
       uses: actions/upload-artifact@v4
       with:
